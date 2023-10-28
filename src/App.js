@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import Login from './Components/Login';
+import Navbar from './Components/Navbar';
+import TeacherDashboard from './Components/TeacherDashboard';
+import { Route, Routes} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Studentlogin from './Components/Studentlogin';
+import StudentRegistration from './Components/RegisterStudent';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <>
+    <Navbar/>
+   <Routes>
+
+  {/* <Route exact path='/adminlogin' element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
+  <Route path="/dashboard/*" element={<Dashboard  user={user}/>}></Route>
+  <Route path="/admindashboard/*" element={<AdminDashboard  admin={admin}/>}></Route> */}
+  <Route exact path='/login' element={<Login/>}></Route>
+  <Route exact path='/teacher' element={<TeacherDashboard/>}></Route>
+  <Route exact path='/registerstudent' element={<StudentRegistration/>}></Route>
+  <Route exact path='/studentlogin' element={<Studentlogin/>}></Route>
+   {/* <Route exact path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} handleLogin={handleLogin} />}></Route>
+  <Route exact path='/load' element={<LoadingAnimation/>}></Route> */}
+
+  </Routes>
+   
+   </>
   );
 }
 
