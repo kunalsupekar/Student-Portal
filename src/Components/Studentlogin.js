@@ -126,9 +126,11 @@ export default function Student() {
           </div>
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block mb-4">
+<Link to="/studentdashboard">
+        <button  className="btn btn-primary btn-block mb-4">
           Sign in
         </button>
+        </Link>
 
         <div className="text-center">
           <p>

@@ -7,8 +7,13 @@ function Navbar() {
     window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.min.js');
   }, []);
 
+  // Custom CSS to adjust the navbar's height
+  const navbarStyle = {
+    height: '50px', // Adjust this value to set the desired height
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-secondary" style={navbarStyle}>
       <a className="navbar-brand" href="/">Navbar</a>
       <button
         className="navbar-toggler"
@@ -50,7 +55,6 @@ function Navbar() {
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="/teacher">Teacher</a>
               <a className="dropdown-item" href="/studentlogin">Student</a>
-             
             </div>
           </div>
         </div>

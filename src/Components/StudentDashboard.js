@@ -1,11 +1,11 @@
 import React from 'react';
-
+import './StudentDashboard.css';
+import StudentNavbar from './StudentNavbar';
 function StudentDashboard() {
   return (
-    <div>
-      <h2>Student Dashboard</h2>
-      {/* Add student-specific content here */}
-    </div>
+    <>
+    <StudentNavbar/>
+    </>
   );
 }
 
