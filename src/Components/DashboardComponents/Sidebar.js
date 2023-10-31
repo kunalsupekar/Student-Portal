@@ -12,7 +12,7 @@ export default function Sidebar() {
 
 <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
-  <div id="nav-header"><a id="nav-title" target="_blank">Academic NEXA</a>
+  <div id="nav-header"><a id="nav-title" href="#" target="_blank">Academic NEXA</a>
     <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
     <hr/>
   </div>
