@@ -12,7 +12,7 @@ export default function Sidebar() {
 
 <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
-  <div id="nav-header"><a id="nav-title" href="#" target="_blank">Academic NEXA</a>
+  <div id="nav-header"><div id="nav-title" href="#" target="_blank">Academic NEXA</div>
     <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
     <hr/>
   </div>
@@ -32,8 +32,8 @@ export default function Sidebar() {
   <input id="nav-footer-toggle" type="checkbox"/>
   <div id="nav-footer">
     <div id="nav-footer-heading">
-      <div id="nav-footer-avatar"><img src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547"/></div>
-      <div id="nav-footer-titlebox"><a id="nav-footer-title" href="https://codepen.io/uahnbu/pens/public" target="_blank">uahnbu</a><span id="nav-footer-subtitle">Admin</span></div>
+      <div id="nav-footer-avatar"><img src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547" alt='profile'/></div>
+      <div id="nav-footer-titlebox"><a id="nav-footer-title" href="https://codepen.io/uahnbu/pens/public">uahnbu</a><span id="nav-footer-subtitle">Admin</span></div>
       <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">
