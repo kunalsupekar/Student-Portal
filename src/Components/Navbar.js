@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   useEffect(() => {
@@ -55,7 +56,7 @@ function Navbar() {
             </button>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a className="dropdown-item" href="/teacher">Teacher</a>
-              <a className="dropdown-item" href="/studentlogin">Student</a>
+              <Link className="dropdown-item" to="/studentlogin">Student</Link>
             </div>
           </div>
         </div>

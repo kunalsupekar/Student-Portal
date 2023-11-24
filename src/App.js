@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Studentlogin from './Components/Studentlogin';
 import StudentRegistration from './Components/RegisterStudent';
 import StudentDashboard from './Components/StudentDashboard';
+import Footer from './Components/Footer';
+import HeroSection from './Components/HeroSection';
 
 
 
@@ -14,6 +16,7 @@ function App() {
   return (
    <>
     <Navbar/>
+   
    <Routes>
 
   {/* <Route exact path='/adminlogin' element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
@@ -28,7 +31,8 @@ function App() {
   <Route exact path='/load' element={<LoadingAnimation/>}></Route> */}
 
   </Routes>
-   
+  <HeroSection/>
+  <Footer/>
    </>
   );
 }
