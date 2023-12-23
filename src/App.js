@@ -1,8 +1,9 @@
 import './App.css';
+import React, { useEffect} from 'react';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import TeacherDashboard from './Components/TeacherDashboard';
-import { Route, Routes} from 'react-router-dom';
+import { Route, Routes,useNavigate} from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Studentlogin from './Components/Studentlogin';
 import StudentRegistration from './Components/RegisterStudent';
@@ -13,6 +14,21 @@ import HeroSection from './Components/HeroSection';
 
 
 function App() {
+
+  const navigate = useNavigate();
+
+  
+
+
+
+  useEffect(() => {
+    const { pathname } = window.location;
+    if (pathname === '/') {
+      navigate('/home');
+    }
+  }, [navigate]);
+
+  
   return (
    <>
     <Navbar/>
@@ -27,11 +43,11 @@ function App() {
   <Route exact path='/registerstudent' element={<StudentRegistration/>}></Route>
   <Route exact path='/studentlogin' element={<Studentlogin/>}></Route>
   <Route exact path='/studentdashboard' element={<StudentDashboard/>}></Route>
+  <Route exact path='/home' element={<HeroSection/>}></Route>
    {/* <Route exact path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} handleLogin={handleLogin} />}></Route>
   <Route exact path='/load' element={<LoadingAnimation/>}></Route> */}
 
   </Routes>
-  <HeroSection/>
   <Footer/>
    </>
   );
