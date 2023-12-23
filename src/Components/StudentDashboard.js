@@ -1,6 +1,6 @@
 import React from 'react';
 import './StudentDashboard.css';
-import StudentNavbar from './DashboardComponents/StudentNavbar';
+// import StudentNavbar from './DashboardComponents/StudentNavbar';
 
 import StudentDashboardCards from './DashboardComponents/StudentDashboardCards';
 import Sidebar from './DashboardComponents/Sidebar';
