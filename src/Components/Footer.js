@@ -50,12 +50,11 @@ export default function Footer() {
         <div className="container text-center text-md-start">
           <div className="row mt-3">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Nidhi Bank</h6>
+              <h6 className="text-uppercase fw-bold mb-4">AcademicNexa</h6>
               <p>
-                Nidhi Bank offers a wide range of loans to meet your diverse
-                needs. Whether the need is for a house, child's education, our
-                unique and need-specific loans will enable you to convert your
-                dreams into realities.
+              AcademicNexa is committed to providing a transformative educational experience. 
+    Our institution focuses on fostering intellectual growth, creativity, and critical thinking. 
+    We strive to empower students with the knowledge and skills necessary for a successful and fulfilling future.
               </p>
             </div>
 
@@ -73,7 +72,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href=" " className="text-reset">
-                  Offices & Branches
+                  T&P 
                 </a>
               </p>
               <p>
@@ -83,7 +82,7 @@ export default function Footer() {
               </p>
               <p>
                 <a href=" " className="text-reset">
-                  Human Resources
+                  Results
                 </a>
               </p>
               <p>
@@ -91,46 +90,37 @@ export default function Footer() {
                   Overview
                 </a>
               </p>
-              <p>
-                <a href=" " className="text-reset">
-                  News Room
-                </a>
-              </p>
+              
             </div>
 
             <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-              <h6 className="text-uppercase fw-bold mb-4">Calculators</h6>
+              <h6 className="text-uppercase fw-bold mb-4">EXPLORE
+
+
+
+</h6>
               <p>
                 <Link to="/calci" className="text-reset">
-                  Calculator
+                CAREERS
                 </Link>
               </p>
               <p>
                 <a href=" " className="text-reset">
-                  Car Loan EMI
+                ALUMNI
                 </a>
               </p>
               <p>
                 <a href=" " className="text-reset">
-                  Fixed Deposit
+                CONTACT
                 </a>
               </p>
               <p>
                 <a href=" " className="text-reset">
-                  Home Loan
+                PODCAST
                 </a>
               </p>
-              <p>
-                <a href=" " className="text-reset">
-                  Business Loan
-                </a>
-              </p>
-              <p>
-                
-                <a href=" " className="text-reset">
-                  Loan Balance Transfer Calculator
-                </a>
-              </p>
+              
+            
             </div>
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -141,7 +131,7 @@ export default function Footer() {
               </p>
               <p>
                 <FontAwesomeIcon icon={faEnvelope} className="me-3 text-secondary" />
-                Nidhibank@gmail.com
+                   academicnexa@gmail.com
               </p>
               <p>
                 <FontAwesomeIcon icon={faPhone} className="me-3 text-secondary" />
@@ -157,7 +147,8 @@ export default function Footer() {
               
                 
               </p>
-                <p>Abhishek Bhosale</p>
+              <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
+                Abhishek Bhosale
             </div>
           </div>
         </div>
@@ -167,7 +158,7 @@ export default function Footer() {
         className="text-center p-3"
         style={{ backgroundColor: '#000',color:'white' }}
       >
-        © 2023 Academicnexa.com
+         &copy; 2024 AcademicNexa. All rights reserved. 
       </div>
     </footer>
   );

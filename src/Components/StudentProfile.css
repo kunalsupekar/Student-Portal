@@ -1,0 +1,66 @@
+/* StudentProfile.css */
+.sidebar-main {
+  display: flex;
+}
+
+.side-sidebar {
+  width: 250px; /* Adjust the width of the sidebar as needed */
+  flex-shrink: 0;
+}
+
+.sidebar-cards {
+  flex-grow: 1;
+  padding: 16px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.photo-container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.student-photo {
+  width: 150px; /* Adjust the size as needed */
+  height: 150px;
+}
+
+.info-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 16px;
+}
+
+.info-box {
+  width: 45%; /* Adjust the width as needed */
+  padding: 8px;
+  margin: 8px;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.address-box {
+  width: 95%; /* Increase the width for the address box */
+}

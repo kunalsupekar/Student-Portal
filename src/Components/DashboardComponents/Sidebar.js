@@ -1,6 +1,6 @@
 import React from 'react'
 import "./Sidebar.css";
-
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
@@ -33,7 +33,11 @@ export default function Sidebar() {
   <div id="nav-footer">
     <div id="nav-footer-heading">
       <div id="nav-footer-avatar"><img src="https://gravatar.com/avatar/4474ca42d303761c2901fa819c4f2547" alt='profile'/></div>
-      <div id="nav-footer-titlebox"><a id="nav-footer-title" href="https://codepen.io/uahnbu/pens/public">uahnbu</a><span id="nav-footer-subtitle">Admin</span></div>
+      <div id="nav-footer-titlebox"><Link id="nav-footer-title"  to="studentprofile">
+       
+        uahnbu
+        </Link>
+        <span id="nav-footer-subtitle">Admin</span></div>
       <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
     </div>
     <div id="nav-footer-content">

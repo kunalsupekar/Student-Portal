@@ -1,31 +1,36 @@
+// StudentDashboard.js
+
 import React from 'react';
 import './StudentDashboard.css';
-// import StudentNavbar from './DashboardComponents/StudentNavbar';
-
+import { Route, Routes } from 'react-router-dom';
 import StudentDashboardCards from './DashboardComponents/StudentDashboardCards';
 import Sidebar from './DashboardComponents/Sidebar';
-
+import StudentProfile from './StudentProfile';
 
 function StudentDashboard() {
   return (
     <>
-    <div>
-      {/* <nav>
-        <StudentNavbar/>
-      </nav> */}
-  
-    <main className='sidebar-main'>
-      <div className="side-sidebar">
-   <Sidebar/>
-      </div>
-      <div className="sidebar-cards">
+      <div>
+        <main className='sidebar-main'>
+          <div className="side-sidebar">
+            {/* Link to Student Profile */}
+        
 
-    <StudentDashboardCards/>
-      </div>
+            <Sidebar />
+          </div>
+          <div className="sidebar-cards">
+            <StudentDashboardCards/>
+                        {/* Define Routes */}
+            <Routes>
+              {/* Route for the Student Dashboard Cards */}
+              {/* <Route path="/" element={<StudentDashboardCards />} /> */}
 
-    </main>
-   {/* <StudentDashboardCards/> */}
-    </div>
+              {/* Route for the Student Profile */}
+              <Route path="/studentrofile" element={<StudentProfile />} />
+            </Routes>
+          </div>
+        </main>
+      </div>
     </>
   );
 }

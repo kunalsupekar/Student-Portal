@@ -1,0 +1,25 @@
+/* StudentRegistration.css */
+
+.registration-form {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .registration-form:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle box shadow on hover */
+  }
+  
+  .registration-form input,
+  .registration-form textarea,
+  .registration-form button {
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .registration-form input:hover,
+  .registration-form textarea:hover,
+  .registration-form button:hover {
+    border-color: #007bff; /* Change border color on hover */
+  }
+  
