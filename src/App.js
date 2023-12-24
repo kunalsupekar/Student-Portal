@@ -46,7 +46,7 @@ function App() {
   <Route  path="/studentdashboard/*" element={<StudentDashboard/>}></Route>
   <Route exact path='/home' element={<HeroSection/>}></Route>
   <Route exact path='/studentregister' element={<StudentRegistration/>}></Route>
- 
+  <Route exact path='/studentprofle' element={<StudentProfile/>}></Route>
   
 
    {/* <Route exact path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} handleLogin={handleLogin} />}></Route>
