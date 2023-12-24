@@ -19,14 +19,14 @@ function StudentDashboard() {
             <Sidebar />
           </div>
           <div className="sidebar-cards">
-            <StudentDashboardCards/>
+            {/* <StudentDashboardCards/> */}
                         {/* Define Routes */}
             <Routes>
               {/* Route for the Student Dashboard Cards */}
-              {/* <Route path="/" element={<StudentDashboardCards />} /> */}
+              <Route path="/" element={<StudentDashboardCards />} />
 
               {/* Route for the Student Profile */}
-              <Route path="/studentrofile" element={<StudentProfile />} />
+              <Route path="/studentprofile" element={<StudentProfile />} />
             </Routes>
           </div>
         </main>
