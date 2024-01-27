@@ -39,10 +39,11 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 80px;
+    font-size: 14px;
   }
   
   .stu-container .card-2 {
-    background-image: url(https://ionicframework.com/img/getting-started/components-card.png);
+    /* background-image: url(https://ionicframework.com/img/getting-started/components-card.png); */
     background-repeat: no-repeat;
     background-position: right;
     background-size: 80px;
@@ -53,6 +54,7 @@
     background-repeat: no-repeat;
     background-position: right;
     background-size: 80px;
+    
   }
   
   .stu-container.sidebar-opened .card {

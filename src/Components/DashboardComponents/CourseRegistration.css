@@ -1,0 +1,92 @@
+/* DisplayCourses.css */
+
+.display-courses-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: silver;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(189, 187, 187, 0.1);
+  }
+  
+  .display-courses-container h2 {
+    color: #333;
+  }
+  
+  .display-courses-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+  }
+  
+  .display-courses-container select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+  }
+  
+  .display-courses-container h3 {
+    color: #333;
+  }
+  
+  .display-courses-container ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .display-courses-container li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    margin-left: 45%;
+    color: #444;
+  }
+  
+  .display-courses-container input[type="checkbox"] {
+    margin-right: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .display-courses-container .submit-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .display-courses-container .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* ... (previous styles) */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Add more styles as needed */
+  

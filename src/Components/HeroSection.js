@@ -49,11 +49,10 @@ export default function HeroSection() {
       <div style={{ marginTop: '100px' }}></div>
         <Slider {...sliderSettings}>
           <div>
-          <img src={image2} alt="Slide 2" style={{ width: '100%', border: '2px solid #fff' }} />
+            <img src={image1} alt="Slide 1" style={{ width: '100%', border: '2px solid #fff' }} />
           </div>
           <div>
-           
-            <img src={image1} alt="Slide 1" style={{ width: '100%', border: '2px solid #fff' }} />
+            <img src={image2} alt="Slide 2" style={{ width: '100%', border: '2px solid #fff' }} />
           </div>
           <div>
             <img src={image3} alt="Slide 3" style={{ width: '100%', border: '2px solid #fff' }} />

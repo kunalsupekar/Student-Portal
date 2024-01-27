@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 
 function StudentRegistration() {
   const [formData, setFormData] = useState({
+    PRN: '',
     firstName: '',
+    middlename: '',
     lastName: '',
-    email: '',
-    studentID: '',
+    gender: '',
+    address: '',
     department: '',
+    email: '',
+    mobileNumber: '',
+    nationality: '',
+    admissionYear: '',
   });
 
   const handleChange = (e) => {
@@ -28,62 +34,55 @@ function StudentRegistration() {
     <div>
       <h2>Student Registration</h2>
       <form onSubmit={handleSubmit}>
+        {/* Other form fields */}
         <div className="form-group">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="gender">Gender</label>
+          <select
+            className="form-control"
+            id="gender"
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            {/* Add more options as needed */}
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">Address</label>
           <input
             type="text"
             className="form-control"
-            id="firstName"
-            name="firstName"
-            value={formData.firstName}
+            id="address"
+            name="address"
+            value={formData.address}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="lastName">Last Name</label>
+          <label htmlFor="mobileNumber">Mobile Number</label>
           <input
             type="text"
             className="form-control"
-            id="lastName"
-            name="lastName"
-            value={formData.lastName}
+            id="mobileNumber"
+            name="mobileNumber"
+            value={formData.mobileNumber}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="studentID">Student ID</label>
+          <label htmlFor="nationality">Nationality</label>
           <input
             type="text"
             className="form-control"
-            id="studentID"
-            name="studentID"
-            value={formData.studentID}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="department">Department</label>
-          <input
-            type="text"
-            className="form-control"
-            id="department"
-            name="department"
-            value={formData.department}
+            id="nationality"
+            name="nationality"
+            value={formData.nationality}
             onChange={handleChange}
             required
           />

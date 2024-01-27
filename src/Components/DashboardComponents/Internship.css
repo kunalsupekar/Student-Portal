@@ -1,0 +1,33 @@
+/* App.css (or any appropriate CSS file) */
+
+.internship-item {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .internship-item:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .internship-title {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .internship-content {
+    padding: 20px;
+  }
+  
+  .internship-label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #333;
+  }
+  
+  /* Additional styles for overall layout or any other specific requirements */

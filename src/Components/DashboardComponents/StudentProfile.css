@@ -3,11 +3,6 @@
   display: flex;
 }
 
-.side-sidebar {
-  width: 250px; /* Adjust the width of the sidebar as needed */
-  flex-shrink: 0;
-}
-
 .sidebar-cards {
   flex-grow: 1;
   padding: 16px;
@@ -18,14 +13,14 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin-top: 20px; /* Add top margin */
 }
 
 .profile-card {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
+  background-color: #f4f4f4;
+  border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -38,11 +33,15 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
+  margin-top: -50px; /* Adjust the margin to center the image */
 }
 
 .student-photo {
-  width: 150px; /* Adjust the size as needed */
+  width: 150px;
   height: 150px;
+  border-radius: 50%; /* Make the image circular */
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .info-container {
@@ -53,14 +52,14 @@
 }
 
 .info-box {
-  width: 45%; /* Adjust the width as needed */
-  padding: 8px;
-  margin: 8px;
-  background-color: #f3f3f3;
+  width: 45%;
+  padding: 12px;
+  margin: 12px;
+  background-color: #e0e0e0;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .address-box {
-  width: 95%; /* Increase the width for the address box */
+  width: 95%;
 }

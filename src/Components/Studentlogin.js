@@ -1,24 +1,53 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Person, Key } from 'react-bootstrap-icons';
+import { studentLogin } from './API/Url';
+import { Spinner } from 'reactstrap';
 
 export default function Student() {
-  const [username, setUsername] = useState('');
+  const [prn, setPrn] = useState('');
   const [password, setPassword] = useState('');
   const [passwordType, setPasswordType] = useState('password');
+  const [isLoading, setIsLoading] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(null);
 
   const togglePassword = () => {
     setPasswordType((prevType) => (prevType === 'password' ? 'text' : 'password'));
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add login logic here
-    console.log('Logging in with:', { username, password });
+    try {
+      setIsLoading(true);
+
+      // Use only 'prn' in the request
+      const credentials = { prn, password };
+      const response = await studentLogin(credentials);
+
+      console.log('Login successful:', response);
+
+      // Set login success status to true
+      setLoginSuccess(true);
+
+      // Simulate a delay for 2 seconds before redirecting
+      setTimeout(() => {
+        // Redirect to the next page (replace '/dashboard' with your actual route)
+        window.location.href = '/studentdashboard';
+      }, 20);
+
+    } catch (error) {
+      console.error('Login failed:', error);
+
+      // Set login success status to false
+      setLoginSuccess(false);
+
+    } finally {
+      // Ensure that the loading spinner is turned off
+      setIsLoading(false);
+    }
   };
 
   return (
-
     <div className="container d-flex justify-content-center align-items-center vh-100">
       <form className="login-form p-4 rounded border" onSubmit={handleLogin}>
         <h2 className="text-center mb-4">Student Login</h2>
@@ -33,11 +62,11 @@ export default function Student() {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter Username"
+              placeholder="Enter PRN"
               style={{ height: '40px', width: '400px' }}
               required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={prn}
+              onChange={(e) => setPrn(e.target.value)}
             />
           </div>
         </div>
@@ -72,33 +101,15 @@ export default function Student() {
           </div>
         </div>
 
-        <div className="row mb-4">
-          <div className="col d-flex justify-content-start align-items-center">
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="rememberMeCheckbox"
-              />
-              <label
-                className="form-check-label"
-                htmlFor="rememberMeCheckbox"
-              >
-                Remember me
-              </label>
-            </div>
+        {loginSuccess === false && (
+          <div className="alert alert-danger" role="alert">
+            Wrong credentials. Please try again.
           </div>
-          <div className="col text-right">
-            <Link to="/">Forgot password?</Link>
-          </div>
-        </div>
+        )}
 
-        
-        <Link to="/studentdashboard">
-  <button className="btn btn-primary btn-block mb-4" type="submit">
-    Sign in
-  </button>
-</Link>
+        <button className="btn btn-primary btn-block mb-4" type="submit">
+          {isLoading ? <Spinner>Loading...</Spinner> : 'Sign'}
+        </button>
 
         <div className="text-center">
           <p>

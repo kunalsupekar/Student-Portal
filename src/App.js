@@ -10,8 +10,9 @@ import StudentDashboard from './Components/StudentDashboard';
 import Footer from './Components/Footer';
 import HeroSection from './Components/HeroSection';
 import StudentRegistration from './Components/StudentRegistration';
-import StudentProfile from './Components/StudentProfile';
-
+import AddQuestion from './Components/Question/AddQuestion';
+import AllQuestion from './Components/Question/AllQuestion';
+import MyCourses from './Components/DashboardComponents/MyCourses';
 
 
 
@@ -33,26 +34,31 @@ function App() {
   
   return (
    <>
+
+
+
     <Navbar/>
    
-   <Routes>
+        <Routes>
 
-  {/* <Route exact path='/adminlogin' element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
-  <Route path="/dashboard/*" element={<Dashboard  user={user}/>}></Route>
-  <Route path="/admindashboard/*" element={<AdminDashboard  admin={admin}/>}></Route> */}
-  <Route exact path='/login' element={<Login/>}></Route>
-  <Route exact path='/teacher' element={<TeacherDashboard/>}></Route>
-  <Route exact path='/studentlogin' element={<Studentlogin/>}></Route>
-  <Route  path="/studentdashboard/*" element={<StudentDashboard/>}></Route>
-  <Route exact path='/home' element={<HeroSection/>}></Route>
-  <Route exact path='/studentregister' element={<StudentRegistration/>}></Route>
-  <Route exact path='/studentprofle' element={<StudentProfile/>}></Route>
-  
+{/* <Route exact path='/adminlogin' element={<AdminLogin handleAdminLogin={handleAdminLogin} />} />
+<Route path="/dashboard/*" element={<Dashboard  user={user}/>}></Route>
+<Route path="/admindashboard/*" element={<AdminDashboard  admin={admin}/>}></Route> */}
+<Route exact path='/login' element={<Login/>}></Route>
+<Route  exact path='/teacher/*' element={<TeacherDashboard/>}></Route>
+<Route exact path='/studentlogin' element={<Studentlogin/>}></Route>
+<Route  path="/studentdashboard/*" element={<StudentDashboard/>}></Route>
+<Route exact path='/home' element={<HeroSection/>}></Route>
+<Route exact path='/studentregister' element={<StudentRegistration/>}></Route>
+<Route exact path='/mycourse' element={<MyCourses/>}></Route>
 
-   {/* <Route exact path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} handleLogin={handleLogin} />}></Route>
-  <Route exact path='/load' element={<LoadingAnimation/>}></Route> */}
+ {/* <Route exact path='/login' element={<Login setIsLoggedIn={setIsLoggedIn} handleLogin={handleLogin} />}></Route>
+<Route exact path='/load' element={<LoadingAnimation/>}></Route> */}
 
-  </Routes>
+</Routes>
+       
+   
+   
   <Footer/>
    </>
   );

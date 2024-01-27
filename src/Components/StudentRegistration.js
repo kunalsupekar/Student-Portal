@@ -1,34 +1,61 @@
 // StudentRegistration.js
 import React, { useState } from 'react';
-import './StudentRegistration.css'; // Import the CSS file
+import './StudentRegistration.css'; 
+import axiosInstance, { BASE_URL } from './API/Url'; 
 
 const StudentRegistration = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+
+    firstname: '',
+    middlename:'',
+    lastname: '',
     email: '',
-    marks:'',
-    studentID: '',
-    department: '',
-    className: '',
-    prnNumber: '',
+    department:'',
+    gender:'',
+    age:'',
     address: '',
+    mobileNumber:'',
+    nationality: '',
+    semester: '',
+    AddmissionYear:''
+    
 
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    try {
+      // Make Axios request to your backend API endpoint
+     
+      const response = await axiosInstance
+      .post(`${BASE_URL}/Api/student/register`, formData);
+
+      setTimeout(() => {
+        // Redirect to the next page (replace '/dashboard' with your actual route)
+        window.location.href = '/studentlogin';
+      }, 20);
+
+      // Handle success (you may want to redirect or show a success message)
+      console.log('Registration successful:', response);
+    } catch (error) {
+      // Handle error (you may want to show an error message)
+      console.error('Registration failed:', error);
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add logic to handle form submission (e.g., API call, data processing)
-    console.log('Form submitted:', formData);
-  };
+  const genderOptions = ['Male', 'Female', 'Other'];
+  const semesterOptions = Array.from({ length: 8 }, (_, index) => (index + 1).toString());
+
+
+  const handleChange = (e) => {
+  const { name, value } = e.target;
+  setFormData((prevData) => ({
+    ...prevData,
+    [name]: value,
+  }));
+};
 
   return (
     <div className="container mt-5">
@@ -37,14 +64,26 @@ const StudentRegistration = () => {
         <div className="row">
           {/* First Column */}
           <div className="col-md-6">
+          <div className="mb-3">
+              <label htmlFor="firstname" className="form-label">FirstName:</label>
+              <input
+                type="firstname"
+                className="form-control"
+                id="firstname"
+                name="firstname"
+                value={formData.firstname}
+                onChange={handleChange}
+                required
+              />
+            </div>
             <div className="mb-3">
-              <label htmlFor="firstName" className="form-label">First Name:</label>
+              <label htmlFor="middlename" className="form-label">Middle Name:</label>
               <input
                 type="text"
                 className="form-control"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
+                id="middleName"
+                name="middlename"
+                value={formData.middlename}
                 onChange={handleChange}
                 required
               />
@@ -54,13 +93,16 @@ const StudentRegistration = () => {
               <input
                 type="text"
                 className="form-control"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
+                id="lastname"
+                name="lastname"
+                value={formData.lastname}
                 onChange={handleChange}
                 required
               />
             </div>
+           
+
+         
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Email:</label>
               <input
@@ -73,31 +115,38 @@ const StudentRegistration = () => {
                 required
               />
             </div>
+             {/* Gender Dropdown */}
+        <div className="mb-3">
+          <label htmlFor="gender" className="form-label">Gender:</label>
+          <select
+            className="form-select"
+            id="gender"
+            name="gender"
+            value={formData.gender}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Select Gender</option>
+            {genderOptions.map((option) => (
+              <option key={option} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
 
-            <div className="mb-3">
-              <label htmlFor="marks" className="form-label">Marks/CGPA:</label>
-              <input
-                type="text"
-                className="form-control"
-                id="marks"
-                name="marks"
-                value={formData.marks}
-                onChange={handleChange}
-                required
-              />
-            </div>
+       
+
           </div>
 
           {/* Second Column */}
           <div className="col-md-6">
-            <div className="mb-3">
-              <label htmlFor="studentID" className="form-label">Student ID:</label>
+          <div className="mb-3">
+              <label htmlFor="mobileNo" className="form-label">MobileNo:</label>
               <input
                 type="text"
                 className="form-control"
-                id="studentID"
-                name="studentID"
-                value={formData.studentID}
+                id="mobileNo"
+                name="mobileNumber"
+                value={formData.mobileNumber}
                 onChange={handleChange}
                 required
               />
@@ -115,29 +164,47 @@ const StudentRegistration = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="className" className="form-label">Class:</label>
+              <label htmlFor="age" className="form-label">Age:</label>
               <input
                 type="text"
                 className="form-control"
-                id="className"
-                name="className"
-                value={formData.className}
+                id="age"
+                name="age"
+                value={formData.age}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="prnNumber" className="form-label">PRN Number:</label>
+              <label htmlFor="Nationality" className="form-label">Nationality:</label>
               <input
                 type="text"
                 className="form-control"
-                id="prnNumber"
-                name="prnNumber"
-                value={formData.prnNumber}
+                id="Nationality"
+                name="nationality"
+                value={formData.nationality}
                 onChange={handleChange}
                 required
               />
             </div>
+
+             {/* Semester Dropdown */}
+        <div className="mb-3">
+          <label htmlFor="semester" className="form-label">Semester:</label>
+          <select
+            className="form-select"
+            id="semester"
+            name="semester"
+            value={formData.semester}
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Select Semester</option>
+            {semesterOptions.map((option) => (
+              <option key={option} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
           </div>
         </div>
 
