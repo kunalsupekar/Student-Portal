@@ -131,15 +131,15 @@ export default function Footer() {
               </p>
               <p>
                 <FontAwesomeIcon icon={faEnvelope} className="me-3 text-secondary" />
-                   academicnexa@gmail.com
+                  kunal.supekar@mitaoe.ac.in
               </p>
               <p>
                 <FontAwesomeIcon icon={faPhone} className="me-3 text-secondary" />
-                +91 7517592324
+                8767655747
               </p>
               <p>
                 <FontAwesomeIcon icon={faPrint} className="me-3 text-secondary" />
-                +91 87676 55747
+                  www.abc.com
               </p>
               <p>
                 <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
@@ -147,8 +147,14 @@ export default function Footer() {
               
                 
               </p>
+              <p>
               <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
                 Abhishek Bhosale
+                </p>
+                <p>
+              <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
+                Rushikesh  Patil
+                </p>
             </div>
           </div>
         </div>
