@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './CourseRegistration.css';
+import  { BASE_URL_COURSE } from '../API/Url4';
 
 const CourseRegistration = () => {
   const [selectedSemester, setSelectedSemester] = useState(null);
@@ -50,7 +51,7 @@ const CourseRegistration = () => {
       };
 
       try {
-        const response = await fetch('http://localhost:8086/api/courses/register', {
+        const response = await fetch(`${BASE_URL_COURSE}/api/courses/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -126,6 +127,7 @@ const CourseRegistration = () => {
             <tbody>
               {coursesBySemester[selectedSemester].map((course, index) => (
                 <tr key={index}>
+                  {/* Render course details here */}
                   <td>{course.name}</td>
                   <td>{course.code}</td>
                   <td>{course.credits}</td>

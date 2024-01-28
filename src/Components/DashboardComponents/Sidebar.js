@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Collapse, ListGroup, ListGroupItem } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   // State to manage the user profile information
-  const [userProfile, setUserProfile] = useState({
+  const [userProfile,setUserProfile] = useState({
     name: "WWW ABC XYZ",
     profileImage: "profileicon.png"
   });
 
+
+  useEffect(() => {
+    const userDataString = sessionStorage.getItem('StudentData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUserProfile({
+        name: userData.firstname + " " + userData.lastname,
+        profileImage: "profileicon.png"
+      });
+    }
+  }, []);
 
   return (
     <div>
@@ -42,9 +53,9 @@ const Sidebar = () => {
             My Profile
             </ListGroupItem>
 
-            <ListGroupItem tag={Link} to="add" action className='border-0 border-bottom rounded'>
+            {/* <ListGroupItem tag={Link} to="add" action className='border-0 border-bottom rounded'>
               Add Quiz
-            </ListGroupItem>
+            </ListGroupItem> */}
 
             <ListGroupItem tag={Link} to="mycourse" action className='border-0 border-bottom rounded'>
               MY Courses
@@ -63,21 +74,25 @@ const Sidebar = () => {
               Internships
             </ListGroupItem>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
-              Partners
+            {/* <ListGroupItem tag={Link} to="getquebyid" action className='border-0 border-bottom rounded'>
+            Get Questions ID
+            </ListGroupItem> */}
+            <ListGroupItem tag={Link} to="getquebycategory" action className='border-0 border-bottom rounded'>
+            Get Questions By Category
             </ListGroupItem>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
-              Calendar
+            <ListGroupItem tag={Link} to="givequiz" action className='border-0 border-bottom rounded'>
+            Attempt Quiz
             </ListGroupItem>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
-              User
-            </ListGroupItem>
+           
+            
 
-            <ListGroupItem tag='a' href='#' action className='border-0 rounded'>
+          
+
+            {/* <ListGroupItem tag='a' href='#' action className='border-0 rounded'>
               Sales
-            </ListGroupItem>
+            </ListGroupItem> */}
 
           </ListGroup>
         </div>

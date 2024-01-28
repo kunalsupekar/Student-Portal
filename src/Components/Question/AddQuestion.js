@@ -1,40 +1,45 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import axiosInstance1, { BASE_URL_QUES } from '../../Components/API/Url2';
-// ... (previous imports)
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'; 
 
 const AddQuestion = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   const [formData, setFormData] = useState({
     questionTitle: '',
-    options: ['', '', '', ''],
+    option1: '',
+    option2: '',
+    option3: '',
+    option4: '',
     rightAnswer: '',
-    difficultyLevel: '',
+    difficultylevel: '',
     category: '',
   });
 
-  const [successMsg, setSuccessMsg] = useState('');
+  const difficultyOptions = ['Hard', 'Medium', 'Easy'];
+  const [successMsg] = useState('');
+  const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === 'rightAnswer') {
-      setFormData({ ...formData, rightAnswer: value, options: formData.options.map((option, index) => (index + 1).toString() === value ? 'on' : option) });
-    } else if (name.startsWith('option')) {
-      const optionIndex = parseInt(name.slice(6));
-      setFormData({ ...formData, options: formData.options.map((option, index) => index === optionIndex - 1 ? value : option) });
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
+    setFormData({ ...formData, [name]: value });
   };
 
   const submitForm = async () => {
     try {
-      console.log('Form Data:', formData);
       const response = await axiosInstance1.post(`${BASE_URL_QUES}/question/add`, formData);
       console.log('Response from backend:', response.data);
-      setSuccessMsg('Question is added successfully!');
-      window.location.href = '/teacher';
+      //setSuccessMsg('Question added successfully!');
+      toast.success('Question added successfully!');
+
+      // Use navigate to go to the teacher dashboard
+      navigate('/teacher');
     } catch (error) {
       console.error('Error adding question:', error);
+      setErrorMsg('Failed to add question. Please try again.');
+      toast.error('Failed to add question. Please try again.');
     }
   };
 
@@ -62,23 +67,21 @@ const AddQuestion = () => {
                   </FormGroup>
 
                   {/* Options 1-4 */}
-                  {formData.options.map((option, index) => (
+                  {['option1', 'option2', 'option3', 'option4'].map((optionName, index) => (
                     <FormGroup key={index}>
-                      <Label for={`option${index + 1}`}>{`Option ${index + 1}:`}</Label>
+                      <Label for={optionName}>{`Option ${index + 1}:`}</Label>
                       <Input
                         type="text"
-                        id={`option${index + 1}`}
-                        name={`option${index + 1}`}
-                        value={option}
+                        id={optionName}
+                        name={optionName}
+                        value={formData[optionName]}
                         onChange={handleChange}
                         required
                       />
                     </FormGroup>
                   ))}
-
-                  {/* Difficulty Level */}
-                 
                 </Col>
+
                 <Col md={6}>
                   {/* Right Answer */}
                   <FormGroup tag="fieldset">
@@ -89,7 +92,7 @@ const AddQuestion = () => {
                           type="radio"
                           id={`rightAnswer${option}`}
                           name="rightAnswer"
-                          value={option}
+                          value={option.toString()}
                           checked={formData.rightAnswer === option.toString()}
                           onChange={handleChange}
                         />
@@ -97,6 +100,24 @@ const AddQuestion = () => {
                       </FormGroup>
                     ))}
                   </FormGroup>
+
+                  {/* Difficulty Level */}
+                  <div className="mb-3">
+                    <Label htmlFor="difficultyLevel" className="form-label">Difficulty Level:</Label>
+                    <select
+                      className="form-select"
+                      id="difficultyLevel"
+                      name="difficultylevel"
+                      value={formData.difficultylevel}
+                      onChange={handleChange}
+                      required
+                    >
+                      <option value="" disabled>Select Difficulty level</option>
+                      {difficultyOptions.map((option) => (
+                        <option key={option} value={option}>{option}</option>
+                      ))}
+                    </select>
+                  </div>
 
                   {/* Category */}
                   <FormGroup>
@@ -110,22 +131,6 @@ const AddQuestion = () => {
                       required
                     />
                   </FormGroup>
-                  <FormGroup>
-                    <Label for="difficultyLevel">Difficulty Level:</Label>
-                    <Input
-                      type="select"
-                      id="difficultyLevel"
-                      name="difficultyLevel"
-                      value={formData.difficultyLevel}
-                      onChange={handleChange}
-                      required
-                    >
-                      <option value="">Select Difficulty</option>
-                      <option value="Hard">Hard</option>
-                      <option value="Medium">Medium</option>
-                      <option value="Easy">Easy</option>
-                    </Input>
-                  </FormGroup>
 
                   {/* Submit Button */}
                   <Button color="primary" onClick={submitForm}>
@@ -133,13 +138,20 @@ const AddQuestion = () => {
                   </Button>
                 </Col>
               </Row>
-            </Form>
 
-            {/* Success Message */}
-            {successMsg && <p className="text-success mt-3">{successMsg}</p>}
+               {/* Success and Error Messages */}
+               {successMsg && <p className="text-success mt-3">{successMsg}</p>}
+              {errorMsg && <p className="text-danger mt-3">{errorMsg}</p>}
+
+              {/* ToastContainer to display toasts */}
+              <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
+            </Form>
           </div>
         </Col>
       </Row>
+
+      {/* ToastContainer to display toasts */}
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar />
     </Container>
   );
 };

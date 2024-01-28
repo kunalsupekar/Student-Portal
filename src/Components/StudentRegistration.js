@@ -1,61 +1,51 @@
 // StudentRegistration.js
 import React, { useState } from 'react';
 import './StudentRegistration.css'; 
-import axiosInstance, { BASE_URL } from './API/Url'; 
+import axiosInstance1, { BASE_URL } from './API/Url';
+import LoadingSpinner from './LoadingSpinner';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const StudentRegistration = () => {
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-
-    firstname: '',
-    middlename:'',
-    lastname: '',
-    email: '',
-    department:'',
-    gender:'',
-    age:'',
-    address: '',
-    mobileNumber:'',
-    nationality: '',
-    semester: '',
-    AddmissionYear:''
-    
-
+    // Your form data...
   });
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+    setLoading(true);
+
     try {
-      // Make Axios request to your backend API endpoint
-     
-      const response = await axiosInstance
-      .post(`${BASE_URL}/Api/student/register`, formData);
+      const response = await axiosInstance1.post(`${BASE_URL}/Api/student/register`, formData);
 
-      setTimeout(() => {
-        // Redirect to the next page (replace '/dashboard' with your actual route)
-        window.location.href = '/studentlogin';
-      }, 20);
+      console.log('Registration successful:', response.data);
+      setLoading(false);
+    //   window.alert("success");
 
-      // Handle success (you may want to redirect or show a success message)
-      console.log('Registration successful:', response);
+      // Display a success toast message when registration is successful
+      toast.success('Registration successful!');
     } catch (error) {
-      // Handle error (you may want to show an error message)
       console.error('Registration failed:', error);
+      setLoading(false);
+
+      // Display an error toast message when registration fails
+      toast.error('Registration failed!');
     }
   };
 
   const genderOptions = ['Male', 'Female', 'Other'];
   const semesterOptions = Array.from({ length: 8 }, (_, index) => (index + 1).toString());
 
-
   const handleChange = (e) => {
-  const { name, value } = e.target;
-  setFormData((prevData) => ({
-    ...prevData,
-    [name]: value,
-  }));
-};
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   return (
     <div className="container mt-5">
@@ -63,6 +53,13 @@ const StudentRegistration = () => {
       <form onSubmit={handleSubmit} className="registration-form">
         <div className="row">
           {/* First Column */}
+
+          {loading && (
+      <LoadingSpinner label="Creating your account..." />
+
+)}
+
+
           <div className="col-md-6">
           <div className="mb-3">
               <label htmlFor="firstname" className="form-label">FirstName:</label>
@@ -223,6 +220,7 @@ const StudentRegistration = () => {
 
         {/* Submit Button */}
         <button type="submit" className="btn btn-primary">Register</button>
+        <ToastContainer />
       </form>
     </div>
   );

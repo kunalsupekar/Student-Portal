@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MDBBadge, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import {MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import axios from 'axios'; // Import axios
+import { BASE_URL_COURSE } from '../API/Url4';
 
 export default function MyCourses() {
   const [semester, setSemester] = useState('');
@@ -15,10 +16,10 @@ export default function MyCourses() {
   };
 
   useEffect(() => {
-    const prn = 202101070160; // Replace this with the actual PRN
+    const prn = 1234567890; // Replace this with the actual PRN
   
     console.log("Fetching data...");
-    axios.get(`http://localhost:8086/api/courses/student/${prn}`)
+    axios.get(`${BASE_URL_COURSE}/api/courses/student/${prn}`)
       .then(response => {
         console.log("Data received:", response.data);
         setApiResponse(response.data);

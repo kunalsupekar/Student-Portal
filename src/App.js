@@ -10,8 +10,6 @@ import StudentDashboard from './Components/StudentDashboard';
 import Footer from './Components/Footer';
 import HeroSection from './Components/HeroSection';
 import StudentRegistration from './Components/StudentRegistration';
-import AddQuestion from './Components/Question/AddQuestion';
-import AllQuestion from './Components/Question/AllQuestion';
 import MyCourses from './Components/DashboardComponents/MyCourses';
 
 

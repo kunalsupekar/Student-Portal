@@ -4,31 +4,27 @@ import {
   Navbar,
   NavbarToggler,
   Collapse,
-  Nav,
-  NavItem,
+  
   ListGroup,
   ListGroupItem,
-  Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  
 } from 'reactstrap';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  //const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  //const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
 
   useEffect(() => {
     // Cleanup: Remove the event listener when the component unmounts
     return () => {
       const label = document.querySelector('label[for=nav-toggle]');
       if (label) {
-        label.removeEventListener('click', toggleSidebar);
+        label.removeEventListener('click');
       }
     };
   }, []); 
@@ -40,56 +36,61 @@ const Sidebar = () => {
           <ListGroup flush className="mx-3 mt-4">
             <h5 className="mb-4 text-center"  active aria-current='true'>Teacher Sidebar</h5>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded rounded'>
+            {/* <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded rounded'>
               Main Dashboard
+            </ListGroupItem> */}
+
+            <ListGroupItem tag={Link} to="teacher"  action className='border-0 border-bottom rounded'>
+            Main Dashboard
             </ListGroupItem>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded' >
+            {/* <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded' >
               Website traffic
             </ListGroupItem>
 
             <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
               Add Quiz
+            </ListGroupItem> */}
+
+            
+            <ListGroupItem tag={Link} to="addquestion"  action className='border-0 border-bottom rounded'>
+            Add Question
+            </ListGroupItem>
+            
+
+            <ListGroupItem tag={Link} to="AllQuestion"  action className='border-0 border-bottom rounded'>
+            View All Question
             </ListGroupItem>
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
-            <Link to="addquestion">
-              Add Question
-              </Link>
+            
+            <ListGroupItem tag={Link} to="createquiz"  action className='border-0 border-bottom rounded'>
+            Create Quiz
             </ListGroupItem>
 
-            <Link to="AllQuestion">
-            <ListGroupItem tag='a'  action className='border-0 border-bottom rounded'>
-              View Question
-            </ListGroupItem>
-            </Link>
-
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
-              Orders
-            </ListGroupItem>
-
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
+            {/* <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
               International
             </ListGroupItem>
 
             <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
               Partners
-            </ListGroupItem>
+            </ListGroupItem> */}
 
-            <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
+            {/* <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
               Calendar
             </ListGroupItem>
 
             <ListGroupItem tag='a' href='#' action className='border-0 border-bottom rounded'>
               User
-            </ListGroupItem>
+            </ListGroupItem> */}
 
-            <ListGroupItem tag='a' href='#' action className='border-0 rounded'>
-              Sales
+            <ListGroupItem tag={Link} to="viewquestions"  action className='border-0 border-bottom rounded'>
+              View All Student
             </ListGroupItem>
+           
+           
           </ListGroup>
 
-          <Nav className="mt-3">
+          {/* <Nav className="mt-3">
             <NavItem className='me-3 me-lg-0'>
               <Dropdown isOpen={dropdownOpen} toggle={toggleDropdown}>
                 <DropdownToggle tag="a" className="nav-link hidden-arrow">
@@ -109,7 +110,7 @@ const Sidebar = () => {
                 </DropdownMenu>
               </Dropdown>
             </NavItem>
-          </Nav>
+          </Nav> */}
         </div>
       </Collapse>
 

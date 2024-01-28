@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Table } from 'reactstrap';
-import axiosInstance1,{ BASE_URL_QUES} from '../../Components/API/Url2'; 
+import { Table } from 'reactstrap';
+import axiosInstance1, { BASE_URL_QUES } from '../../Components/API/Url2';
 
 const QuestionList = () => {
   const [questions, setQuestions] = useState([]);
@@ -12,7 +12,6 @@ const QuestionList = () => {
 
   const fetchQuestions = async () => {
     try {
-      // Assuming you want to fetch from the 'questions' endpoint
       const response = await axiosInstance1.get(`${BASE_URL_QUES}/question/allQuestions`);
       const data = response.data;
       setQuestions(data);
@@ -22,7 +21,7 @@ const QuestionList = () => {
   };
 
   return (
-    <div>
+    <div style={{ maxHeight: '400px', overflowY: 'auto' }}>
       <h2 className="text-center mb-4">All Questions</h2>
       <Table striped>
         <thead>
@@ -44,7 +43,7 @@ const QuestionList = () => {
                 {question.option1}, {question.option2}, {question.option3}, {question.option4}
               </td>
               <td>{question.rightAnswer}</td>
-              <td>{question.difficultylevel}</td>
+              <td>{question.difficultylevel}</td> {/* Display the actual difficulty level value */}
               <td>{question.category}</td>
             </tr>
           ))}

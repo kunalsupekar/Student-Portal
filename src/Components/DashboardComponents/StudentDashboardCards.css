@@ -1,70 +1,69 @@
 /* Styles for .stu-container and its descendants */
 .stu-container {
-    font-family: 'Nunito', sans-serif;
-    padding: 20px; /* Reduce padding to make the container smaller */
-    max-width: 1200px; /* Set a maximum width to limit the container's size */
-    position: relative;
-  }
+  font-family: 'Nunito', sans-serif;
+  padding: 20px; /* Reduce padding to make the container smaller */
+  max-width: 1200px; /* Set a maximum width to limit the container's size */
+  position: relative;
+}
+
+.stu-container .card {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  padding: 14px 20px; /* Adjust the padding to make the cards smaller */
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  max-width: 100%; /* Ensure that the cards stay within the container */
+}
+
+.stu-container .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+.stu-container .card h3 {
+  font-weight: 600;
+}
+
+.stu-container .card img {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  max-height: 120px;
+}
+
+.stu-container .card-1 {
+  background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 80px;
+  font-size: 14px;
+}
+
+.stu-container .card-2 {
+  /* background-image: url(https://ionicframework.com/img/getting-started/components-card.png); */
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 80px;
+}
+
+.stu-container .card-3 {
+  background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 80px;
   
+}
+
+.stu-container.sidebar-opened .card {
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12), .3s left cubic-bezier(.155, 1.105, .295, 1.12);
+  left: 200px;
+}
+
+@media (max-width: 990px) {
   .stu-container .card {
-    border-radius: 4px;
-    background: #fff;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
-    transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
-    padding: 14px 20px; /* Adjust the padding to make the cards smaller */
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    max-width: 100%; /* Ensure that the cards stay within the container */
+    margin: 20px;
   }
-  
-  .stu-container .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
-  }
-  
-  .stu-container .card h3 {
-    font-weight: 600;
-  }
-  
-  .stu-container .card img {
-    position: absolute;
-    top: 20px;
-    right: 15px;
-    max-height: 120px;
-  }
-  
-  .stu-container .card-1 {
-    background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
-    font-size: 14px;
-  }
-  
-  .stu-container .card-2 {
-    /* background-image: url(https://ionicframework.com/img/getting-started/components-card.png); */
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
-  }
-  
-  .stu-container .card-3 {
-    background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
-    
-  }
-  
-  .stu-container.sidebar-opened .card {
-    transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12), .3s left cubic-bezier(.155, 1.105, .295, 1.12);
-    left: 200px;
-  }
-  
-  @media (max-width: 990px) {
-    .stu-container .card {
-      margin: 20px;
-    }
-  }
-  
+}
