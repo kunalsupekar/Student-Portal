@@ -67,3 +67,13 @@
     margin: 20px;
   }
 }
+
+/* Add animation to task list items */
+.stu-container .card-3 .student-tasks li {
+  transition: background-color 0.3s ease;
+}
+
+/* Change text color when checkbox is clicked */
+.stu-container .card-3 .student-tasks li input:checked + label {
+  color: #4CAF50; /* Green color (you can choose your preferred color) */
+}

@@ -13,12 +13,14 @@ export default function StudentDashboardCards() {
 
   return (
     <>
+ 
       <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,900"
         rel="stylesheet"
       />
 
       <div className="stu-container">
+        
         <div className="row">
           <div className="col-md-4">
             <div className="card card-1">
@@ -32,9 +34,9 @@ export default function StudentDashboardCards() {
           </div>
 
           <div className="col-md-4">
-            <div className="card card-3">
-              <h3>Tasks</h3>
-              <ul className="student-tasks">
+        <div className="card card-3">
+          <h3>Tasks</h3>
+          <ul className="student-tasks">
                 <li>
                   <input type="checkbox" id="task1" />
                   <label htmlFor="task1">Course Registration</label>
@@ -48,6 +50,31 @@ export default function StudentDashboardCards() {
                   <input type="checkbox" id="task3" />
                   <label htmlFor="task3">Submit Project Proposal</label>
                 </li>
+                <li>
+                  <input type="checkbox" id="task2" />
+                  <label htmlFor="task2">Cloud assignment</label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="task3" />
+                  <label htmlFor="task3">Apply for Internship</label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="task2" />
+                  <label htmlFor="task2">Check Status</label>
+                </li>
+
+                <li>
+                  <input type="checkbox" id="task3" />
+                  <label htmlFor="task3">Submit Project Proposal</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task2" />
+                  <label htmlFor="task2">Prepare for Exam</label>
+                </li>
+
+                
                 {/* Add more tasks as needed */}
               </ul>
             </div>
@@ -73,9 +100,39 @@ export default function StudentDashboardCards() {
                 <strong>Attendance:</strong> <span id="attendancePercentage">{formattedAttendance}%</span>
               </div>
             </div>
+            
           </div>
+          
         </div>
+
+
+
+        
+        
       </div>
+      
+      <div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#/" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#/" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+      
     </>
   );
 }
