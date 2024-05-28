@@ -16,17 +16,32 @@ export default function MyCourses() {
   };
 
   useEffect(() => {
-    const prn = 1234567890; // Replace this with the actual PRN
+    // Retrieve student data from session storage
+    const studentDataString = sessionStorage.getItem('StudentData');
   
-    console.log("Fetching data...");
-    axios.get(`${BASE_URL_COURSE}/api/courses/student/${prn}`)
-      .then(response => {
-        console.log("Data received:", response.data);
-        setApiResponse(response.data);
-      })
-      .catch(error => console.error('Error fetching data:', error));
-
+    if (studentDataString) {
+      // Parse the JSON string to an object
+      const studentData = JSON.parse(studentDataString);
+  
+      // Check if PRN exists in the student data
+      if (studentData && studentData.prn) {
+        const prn = studentData.prn;
+  
+        console.log("Fetching data...");
+        axios.get(`${BASE_URL_COURSE}/api/courses/student/${prn}`)
+          .then(response => {
+            console.log("Data received:", response.data);
+            setApiResponse(response.data);
+          })
+          .catch(error => console.error('Error fetching data:', error));
+      } else {
+        console.error('Student PRN not found in session storage');
+      }
+    } else {
+      console.error('Student data not found in session storage');
+    }
   }, []);
+  
   
   
   // Filter courses based on the selected semester or show all courses
