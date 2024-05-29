@@ -20,3 +20,22 @@
   padding: 20px; /* Adjust padding as needed */
   /* Add styles for the main content area */
 }
+
+.welcome-text {
+  padding: 20px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+
+}
+
+.welcome-text h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.welcome-text p {
+  margin: 5px 0 0;
+  color: #666;
+}

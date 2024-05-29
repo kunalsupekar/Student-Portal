@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axiosInstance2, { BASE_URL_QUIZ } from '../../Components/API/Url3';
 import { Button, Container, Form, FormControl, InputGroup, ListGroup } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
