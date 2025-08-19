@@ -127,32 +127,20 @@ export default function Footer() {
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
               <p>
                 <FontAwesomeIcon icon={faHome} className="me-3 text-secondary" />
-                Alandi, Pune-414403
+                Pune, Maharashtra 412105 India
               </p>
               <p>
                 <FontAwesomeIcon icon={faEnvelope} className="me-3 text-secondary" />
-                 aditya.dhanwai@mitaoe.ac.in
+                kunalsupekar965@gmail.com
               </p>
               <p>
                 <FontAwesomeIcon icon={faPhone} className="me-3 text-secondary" />
-                9112643163
+                8767655747
               </p>
               <p>
                 <FontAwesomeIcon icon={faPrint} className="me-3 text-secondary" />
-                  www.adityadhanwai.me
+                  https://kunalsupekar-portfolio.netlify.app/
               </p>
-              <p>
-                <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
-                Aditya Dhanwai
-              </p>
-              <p>
-              <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
-                Saurabh Deshmukh
-                </p>
-                <p>
-              <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
-                Shivam Bhagwat
-                </p>
                 <p>
               <FontAwesomeIcon icon={faUser} className="me-3 text-secondary" />
                 Kunal Supekar
